@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Node / Next
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# Local secrets and environment
+.env
+.env.*
+!.env.example
+
+# Model checkpoints are supplied from the final notebook export
+model_artifacts/*.keras
+*.log
+.DS_Store

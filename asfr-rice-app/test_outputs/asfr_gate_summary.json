@@ -1,0 +1,111 @@
+{
+  "analysis": "Full locked-test-set ASFR spatial gate analysis",
+  "test_images": 1770,
+  "native_gate_shape": [
+    14,
+    14
+  ],
+  "gate_layer": "asfr_spatial_gate",
+  "manifest_sha256": "be585c7db4c548a8520308363939eb6c65bc3f8f3137c0c64905988a347146e0",
+  "split_version": "fresh_grouped_phash_v2",
+  "model_metadata": {
+    "schema_version": "1.1",
+    "model_name": "ResNet50V2_ASFR",
+    "model_version": "asfr_fresh_kaggle_5models_3seeds_8epochs_seed52",
+    "artifact": "best_model.keras",
+    "artifact_sha256": "a0092905b250d0034c884f0ce56de018798b8f8e25595722ed2535d637b36bec",
+    "artifact_size_bytes": 108439909,
+    "framework": "TensorFlow/Keras",
+    "keras_version_recorded_at_save": "3.13.2",
+    "input": {
+      "shape": [
+        null,
+        224,
+        224,
+        3
+      ],
+      "color_space": "RGB"
+    },
+    "output": {
+      "shape": [
+        null,
+        9
+      ],
+      "classes": 9,
+      "activation": "softmax"
+    },
+    "class_mapping_file": "class_names.json",
+    "class_names_in_label_order": [
+      "Bacterial Leaf Blight",
+      "Brown Spot",
+      "Healthy Rice Leaf",
+      "Leaf Blast",
+      "Leaf Scald",
+      "Narrow Brown Leaf Spot",
+      "Neck Blast",
+      "Rice Hispa",
+      "Sheath Blight"
+    ],
+    "preprocessing": {
+      "resize": "224x224; bilinear with antialiasing",
+      "normalization": "tf.keras.applications.resnet_v2.preprocess_input",
+      "training_augmentation": "random horizontal flip (training only)"
+    },
+    "parameter_count": 8996106,
+    "evaluation_reference": {
+      "status": "LOCKED_TEST_SET_EVALUATED; OOD_PENDING",
+      "note": "Refer to the final notebook evaluation artifacts for reported metrics."
+    },
+    "source_artifacts": {
+      "notebook": "asymmetric-spatial-feature-routing(3).ipynb",
+      "evaluation_metadata": "stage7_final_evaluation_metadata.json",
+      "final_audit": "stage9_final_audit.json",
+      "artifact_checksum": "VERIFIED",
+      "model_load": "PENDING",
+      "prediction_parity": "PENDING",
+      "dependency_installation": "VERIFIED"
+    },
+    "limitations": [
+      "Research benchmark only; not a field-validated diagnostic system.",
+      "External field and OOD validation is pending.",
+      "Use the exact selected checkpoint and class mapping exported by the final notebook.",
+      "Do not infer lesion localization from Grad-CAM or the ASFR gate."
+    ]
+  },
+  "overall_gate_value_distribution": {
+    "count": 346920,
+    "mean": 0.9610697571929154,
+    "std": 0.13003354232315967,
+    "min": 3.0403982691495912e-06,
+    "p01": 0.17007974788546562,
+    "p10": 0.9126994848251343,
+    "p25": 0.9914160221815109,
+    "median": 0.9998100996017456,
+    "p75": 0.9999986886978149,
+    "p90": 1.0,
+    "p95": 1.0,
+    "p99": 1.0,
+    "max": 1.0
+  },
+  "per_image_statistics": {
+    "mean_gate_mean": 0.9610697571929154,
+    "std_gate_mean": 0.07838843242715403,
+    "mean_within_image_gate_std": 0.07126485947695362,
+    "mean_percentage_gate_ge_095": 86.67906145509052,
+    "median_percentage_gate_ge_095": 90.3061224489796,
+    "mean_percentage_gate_lt_050": 2.1281563472846767
+  },
+  "class_count": 9,
+  "class_names": [
+    "Bacterial Leaf Blight",
+    "Brown Spot",
+    "Healthy Rice Leaf",
+    "Leaf Blast",
+    "Leaf Scald",
+    "Narrow Brown Leaf Spot",
+    "Neck Blast",
+    "Rice Hispa",
+    "Sheath Blight"
+  ],
+  "interpretation_note": "Gate values represent learned spatial gating values. They are not class-specific Grad-CAM scores, lesion masks, or direct evidence of causal feature importance. This is descriptive analysis, not model tuning."
+}
